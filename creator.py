@@ -10,13 +10,9 @@ import re
 
 
 def main():
-	# create a calendar
-	calendar_name = 'Bilkent Academic Calendar'
-	cal = Calendar()
-	cal['summary'] = calendar_name
-	cal['dtstart'] = '20050404T080000'
-	cal.add('prodid', '-//' + calendar_name + '//tuzun.co//')
-	cal.add('version', '0.1')
+	# create the calendars
+	cal = create_calendar('Bilkent Academic Calendar')
+	cal_idmyo = create_calendar('IDMYO Calendar')
 
 	# get events
 	file = open('events.json','r')
@@ -37,13 +33,29 @@ def main():
 			
 	# add events to the calendar
 	for e in events:
-		add_event(e, cal)
+		if e['idmyo']:
+			add_event(e, cal_idmyo)
+		else:
+			add_event(e, cal)
 
-	# save the calendar
-	f = open(os.path.join(expanduser('~'), calendar_name + '.ics'), 'wb')
-	print(calendar_name + '.ics has been created in ' + os.path.join(expanduser('~')))
-	f.write(cal.to_ical())
-	f.close()
+	save_calendar(cal)
+	save_calendar(cal_idmyo)
+
+
+def create_calendar(calendar_name):
+	cal = Calendar()
+	cal['summary'] = calendar_name
+	cal['dtstart'] = '20050404T080000'
+	cal.add('prodid', '-//' + calendar_name + '//tuzun.co//')
+	cal.add('version', '0.1')
+	return cal
+
+
+def save_calendar(calendar):
+	file = open(os.path.join(expanduser('~'), calendar['summary'] + '.ics'), 'wb')
+	print(calendar['summary'] + '.ics has been created in ' + os.path.join(expanduser('~')))
+	file.write(calendar.to_ical())
+	file.close()
 
 
 def add_event(e, cal):
