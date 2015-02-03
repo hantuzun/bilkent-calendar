@@ -47,7 +47,7 @@ def create_calendar(calendar_name):
 	cal['summary'] = calendar_name
 	cal['dtstart'] = '20050404T080000'
 	cal.add('prodid', '-//' + calendar_name + '//tuzun.co//')
-	cal.add('version', '0.1')
+	cal.add('version', '1.0')
 	return cal
 
 
