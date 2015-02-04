@@ -11,6 +11,8 @@ You can import these files to your calendar applications (Google Calendar, Apple
 2. Import these calendars to your calendar application.
   * [for Google Calendar](https://support.google.com/calendar/answer/37118?hl=en)
   * [for Apple Calendar](http://support.apple.com/kb/PH11524)
+  * [for Android](https://play.google.com/store/apps/details?id=jitdesign.icsimport)
+  * [for iPhone or iPad](https://discussions.apple.com/thread/5073594)
 
 
 ### Build Instructions
