@@ -35,4 +35,6 @@ Instructions for [Google Calendar](https://support.google.com/calendar/answer/37
 3. Run the master script: `python3 bilkent-calendar.py`
 4. Calendar files will be created at your home folder.
 
+This projected is licensed under the terms of the MIT license.
+
 Pull requests are welcome.
